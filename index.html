@@ -4,418 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сайт-визитка | Главная</title>
-    <style>
-        /* Общие стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Шапка */
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        .logo span {
-            color: #3498db;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
-        }
-        
-        nav ul li a:hover {
-            color: #3498db;
-        }
-        
-        /* Главный контент */
-        .main-content {
-            padding: 3rem 0;
-            min-height: calc(100vh - 140px);
-        }
-        
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        .page.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        h1, h2, h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        /* Главная страница */
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 {
-            color: white;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .feature {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-        
-        /* Обо мне */
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .profile-img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .skills {
-            margin-top: 2rem;
-        }
-        
-        .skill {
-            margin-bottom: 1rem;
-        }
-        
-        .skill-name {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-level {
-            height: 100%;
-            background-color: #3498db;
-            border-radius: 5px;
-        }
-        
-        /* Портфолио */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .portfolio-item {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .portfolio-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-        
-        .portfolio-info h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Услуги */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .service:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service i {
-            font-size: 2.5rem;
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-        
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #3498db;
-            margin: 1rem 0;
-        }
-        
-        /* Контакты */
-        .contact-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-item i {
-            font-size: 1.5rem;
-            color: #3498db;
-            margin-right: 1rem;
-            width: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Подвал */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: #3498db;
-        }
-        
-        .copyright {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 0.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.7rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- Шапка сайта -->
@@ -450,17 +40,17 @@
                 <h2>Почему выбирают меня</h2>
                 <div class="features">
                     <div class="feature">
-                        <i>💼</i>
+                        <div class="feature-icon">💼</div>
                         <h3>Профессионализм</h3>
                         <p>Более 5 лет опыта в веб-разработке и создании современных интерфейсов</p>
                     </div>
                     <div class="feature">
-                        <i>⚡</i>
+                        <div class="feature-icon">⚡</div>
                         <h3>Скорость</h3>
                         <p>Быстрая разработка и оптимизация для достижения максимальной производительности</p>
                     </div>
                     <div class="feature">
-                        <i>📱</i>
+                        <div class="feature-icon">📱</div>
                         <h3>Адаптивность</h3>
                         <p>Создание сайтов, которые отлично выглядят на всех устройствах и экранах</p>
                     </div>
@@ -481,25 +71,25 @@
                             <div class="skill">
                                 <span class="skill-name">HTML/CSS</span>
                                 <div class="skill-bar">
-                                    <div class="skill-level" style="width: 95%"></div>
+                                    <div class="skill-level" data-level="95"></div>
                                 </div>
                             </div>
                             <div class="skill">
                                 <span class="skill-name">JavaScript</span>
                                 <div class="skill-bar">
-                                    <div class="skill-level" style="width: 90%"></div>
+                                    <div class="skill-level" data-level="90"></div>
                                 </div>
                             </div>
                             <div class="skill">
                                 <span class="skill-name">React</span>
                                 <div class="skill-bar">
-                                    <div class="skill-level" style="width: 85%"></div>
+                                    <div class="skill-level" data-level="85"></div>
                                 </div>
                             </div>
                             <div class="skill">
                                 <span class="skill-name">Node.js</span>
                                 <div class="skill-bar">
-                                    <div class="skill-level" style="width: 80%"></div>
+                                    <div class="skill-level" data-level="80"></div>
                                 </div>
                             </div>
                         </div>
@@ -558,28 +148,28 @@
                 
                 <div class="services-grid">
                     <div class="service">
-                        <i>🌐</i>
+                        <div class="service-icon">🌐</div>
                         <h3>Веб-разработка</h3>
                         <p>Создание современных и адаптивных веб-сайтов с использованием последних технологий</p>
                         <div class="price">от 15 000 руб.</div>
                         <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
                     </div>
                     <div class="service">
-                        <i>📱</i>
+                        <div class="service-icon">📱</div>
                         <h3>Мобильные приложения</h3>
                         <p>Разработка кроссплатформенных мобильных приложений с нативным пользовательским опытом</p>
                         <div class="price">от 30 000 руб.</div>
                         <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
                     </div>
                     <div class="service">
-                        <i>🛠️</i>
+                        <div class="service-icon">🛠️</div>
                         <h3>Техническая поддержка</h3>
                         <p>Обслуживание и поддержка существующих сайтов, устранение ошибок и добавление нового функционала</p>
                         <div class="price">от 5 000 руб./мес</div>
                         <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
                     </div>
                     <div class="service">
-                        <i>🎨</i>
+                        <div class="service-icon">🎨</div>
                         <h3>UI/UX дизайн</h3>
                         <p>Создание интуитивно понятных и привлекательных интерфейсов для ваших цифровых продуктов</p>
                         <div class="price">от 10 000 руб.</div>
@@ -597,28 +187,28 @@
                     <div class="contact-info">
                         <h2>Контактная информация</h2>
                         <div class="contact-item">
-                            <i>📧</i>
+                            <div class="contact-icon">📧</div>
                             <div>
                                 <h3>Email</h3>
                                 <p>example@mail.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i>📞</i>
+                            <div class="contact-icon">📞</div>
                             <div>
                                 <h3>Телефон</h3>
                                 <p>+7 (999) 123-45-67</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i>📍</i>
+                            <div class="contact-icon">📍</div>
                             <div>
                                 <h3>Адрес</h3>
                                 <p>г. Москва, ул. Примерная, д. 123</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i>🕒</i>
+                            <div class="contact-icon">🕒</div>
                             <div>
                                 <h3>Время работы</h3>
                                 <p>Пн-Пт: 9:00 - 18:00</p>
@@ -669,41 +259,6 @@
         </div>
     </footer>
 
-    <script>
-        // Навигация между страницами
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page');
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetPage = this.getAttribute('data-page');
-                    
-                    // Скрыть все страницы
-                    pages.forEach(page => {
-                        page.classList.remove('active');
-                    });
-                    
-                    // Показать целевую страницу
-                    document.getElementById(targetPage).classList.add('active');
-                    
-                    // Прокрутка к верху страницы
-                    window.scrollTo(0, 0);
-                });
-            });
-            
-            // Обработка формы
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Сообщение отправлено! Я свяжусь с вами в ближайшее время.');
-                    this.reset();
-                });
-            }
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
