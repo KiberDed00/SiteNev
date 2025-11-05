@@ -42,7 +42,7 @@ header {
 }
 
 .logo span {
-    color: #3498db;
+    color: #18d838;
 }
 
 nav ul {
@@ -63,7 +63,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #3498db;
+    color: #29003b;
 }
 
 /* Главный контент */
