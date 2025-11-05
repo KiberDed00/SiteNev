@@ -42,7 +42,7 @@ header {
 }
 
 .logo span {
-    color: #18d838;
+    color: #4b0082;
 }
 
 nav ul {
@@ -63,7 +63,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #29003b;
+    color: #4b0082;
 }
 
 /* Главный контент */
@@ -98,7 +98,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #4b0082;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
 }
@@ -111,7 +111,7 @@ p {
 .hero {
     text-align: center;
     padding: 4rem 0;
-    background: linear-gradient(135deg, #3498db, #2c3e50);
+    background: linear-gradient(135deg, #4b0082, #2c3e50);
     color: white;
     border-radius: 10px;
     margin-bottom: 3rem;
@@ -131,7 +131,7 @@ p {
 
 .btn {
     display: inline-block;
-    background-color: #3498db;
+    background-color: #4b0082;
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
@@ -143,7 +143,7 @@ p {
 }
 
 .btn:hover {
-    background-color: #2980b9;
+    background-color: #4b0082;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -222,7 +222,7 @@ p {
 
 .skill-level {
     height: 100%;
-    background-color: #3498db;
+    background-color: #4b0082;
     border-radius: 5px;
     width: 0;
     transition: width 1s ease-in-out;
@@ -289,7 +289,7 @@ p {
 .price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #3498db;
+    color: #4b0082;
     margin: 1rem 0;
 }
 
@@ -343,7 +343,7 @@ p {
 
 .form-control:focus {
     outline: none;
-    border-color: #3498db;
+    border-color: #4b0082;
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
 
@@ -380,7 +380,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: #3498db;
+    color: #4b0082;
 }
 
 .copyright {
