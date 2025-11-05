@@ -14,7 +14,7 @@
         }
         
         body {
-            background-color: #f8f9fa;
+            background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
@@ -23,60 +23,109 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
-        /* Навигация */
-        nav {
+        /* Шапка */
+        header {
             background-color: #2c3e50;
+            color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .nav-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
         }
         
-        .nav-links {
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
             display: flex;
             list-style: none;
         }
         
-        .nav-links li {
-            margin-left: 2rem;
+        nav ul li {
+            margin-left: 1.5rem;
         }
         
-        .nav-links a {
+        nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 0.5rem 0;
         }
         
-        .nav-links a:hover {
+        nav ul li a:hover {
             color: #3498db;
         }
         
         /* Главный контент */
+        .main-content {
+            padding: 3rem 0;
+            min-height: calc(100vh - 140px);
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Главная страница */
         .hero {
+            text-align: center;
+            padding: 4rem 0;
             background: linear-gradient(135deg, #3498db, #2c3e50);
             color: white;
-            padding: 5rem 0;
-            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 3rem;
         }
         
         .hero h1 {
+            color: white;
             font-size: 3rem;
             margin-bottom: 1rem;
         }
@@ -89,132 +138,181 @@
         
         .btn {
             display: inline-block;
-            background-color: #e74c3c;
+            background-color: #3498db;
             color: white;
             padding: 0.8rem 1.5rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
-            background-color: #c0392b;
+            background-color: #2980b9;
         }
         
-        /* Секции */
-        section {
-            padding: 4rem 0;
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .section-title {
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2rem;
-            color: #2c3e50;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
         }
         
         /* Обо мне */
         .about-content {
             display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
             align-items: center;
-            gap: 3rem;
         }
         
         .about-text {
             flex: 1;
+            min-width: 300px;
         }
         
         .about-image {
             flex: 1;
+            min-width: 300px;
             text-align: center;
         }
         
-        .about-image img {
-            max-width: 100%;
+        .profile-img {
+            width: 100%;
+            max-width: 400px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        /* Услуги */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .skills {
+            margin-top: 2rem;
         }
         
-        .service-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: #3498db;
+        .skill {
             margin-bottom: 1rem;
+        }
+        
+        .skill-name {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 5px;
         }
         
         /* Портфолио */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
         
         .portfolio-item {
-            position: relative;
+            background: white;
+            border-radius: 8px;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(44, 62, 80, 0.8);
-            color: white;
-            padding: 1rem;
-            transform: translateY(100%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
         }
         
-        .portfolio-item:hover .portfolio-overlay {
-            transform: translateY(0);
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin: 1rem 0;
         }
         
         /* Контакты */
         .contact-content {
             display: flex;
+            flex-wrap: wrap;
             gap: 3rem;
         }
         
         .contact-info {
             flex: 1;
+            min-width: 300px;
         }
         
         .contact-form {
             flex: 1;
+            min-width: 300px;
         }
         
         .contact-item {
@@ -223,10 +321,11 @@
             margin-bottom: 1.5rem;
         }
         
-        .contact-icon {
+        .contact-item i {
             font-size: 1.5rem;
             color: #3498db;
             margin-right: 1rem;
+            width: 30px;
         }
         
         .form-group {
@@ -236,11 +335,10 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-weight: bold;
         }
         
-        .form-group input,
-        .form-group textarea {
+        .form-control {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid #ddd;
@@ -248,29 +346,29 @@
             font-size: 1rem;
         }
         
-        .form-group textarea {
-            height: 150px;
+        textarea.form-control {
+            min-height: 150px;
             resize: vertical;
         }
         
-        /* Футер */
+        /* Подвал */
         footer {
             background-color: #2c3e50;
             color: white;
-            padding: 3rem 0;
+            padding: 2rem 0;
             text-align: center;
         }
         
         .footer-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: 2rem;
         }
         
         .social-links {
             display: flex;
             gap: 1rem;
+            margin: 1rem 0;
         }
         
         .social-links a {
@@ -284,203 +382,328 @@
         }
         
         .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
+            margin-top: 1rem;
             font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
+            opacity: 0.8;
         }
         
         /* Адаптивность */
         @media (max-width: 768px) {
-            .nav-container {
+            .header-content {
                 flex-direction: column;
+                text-align: center;
             }
             
-            .nav-links {
+            nav ul {
                 margin-top: 1rem;
+                justify-content: center;
             }
             
-            .nav-links li {
-                margin-left: 1rem;
-                margin-right: 1rem;
+            nav ul li {
+                margin: 0 0.5rem;
             }
             
             .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            h1 {
                 font-size: 2rem;
             }
             
-            .about-content,
-            .contact-content {
-                flex-direction: column;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 1rem;
+            h2 {
+                font-size: 1.7rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Навигация -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">Мое Портфолио</div>
-            <ul class="nav-links">
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#about">Обо мне</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Главная секция -->
-    <section id="home" class="hero">
+    <!-- Шапка сайта -->
+    <header>
         <div class="container">
-            <h1>Привет, я Иван Иванов</h1>
-            <p>Веб-разработчик и дизайнер с более чем 5-летним опытом создания современных и функциональных веб-сайтов.</p>
-            <a href="#portfolio" class="btn">Посмотреть работы</a>
-        </div>
-    </section>
-
-    <!-- Обо мне -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Обо мне</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Я профессиональный веб-разработчик с глубокими знаниями в области frontend и backend разработки. Специализируюсь на создании адаптивных и интуитивно понятных веб-приложений.</p>
-                    <p>Мой подход к работе сочетает в себе техническое мастерство и креативное мышление, что позволяет создавать продукты, которые не только функциональны, но и визуально привлекательны.</p>
-                    <p>В свободное время я изучаю новые технологии, участвую в open-source проектах и веду технический блог.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x400" alt="Мое фото">
-                </div>
+            <div class="header-content">
+                <div class="logo">Мой<span>Сайт</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Главная</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">Обо мне</a></li>
+                        <li><a href="#" class="nav-link" data-page="portfolio">Портфолио</a></li>
+                        <li><a href="#" class="nav-link" data-page="services">Услуги</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Контакты</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Услуги -->
-    <section id="services">
+    <!-- Основной контент -->
+    <main class="main-content">
         <div class="container">
-            <h2 class="section-title">Мои услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Веб-разработка</h3>
-                    <p>Создание современных и адаптивных веб-сайтов с использованием HTML5, CSS3, JavaScript и современных фреймворков.</p>
+            <!-- Главная страница -->
+            <section id="home" class="page active">
+                <div class="hero">
+                    <h1>Добро пожаловать на мой сайт-визитку</h1>
+                    <p>Я профессиональный веб-разработчик с опытом создания современных и функциональных веб-сайтов</p>
+                    <a href="#" class="btn nav-link" data-page="portfolio">Смотреть работы</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>UI/UX Дизайн</h3>
-                    <p>Разработка интуитивно понятных интерфейсов, ориентированных на пользовательский опыт и визуальную привлекательность.</p>
+                
+                <h2>Почему выбирают меня</h2>
+                <div class="features">
+                    <div class="feature">
+                        <i>💼</i>
+                        <h3>Профессионализм</h3>
+                        <p>Более 5 лет опыта в веб-разработке и создании современных интерфейсов</p>
+                    </div>
+                    <div class="feature">
+                        <i>⚡</i>
+                        <h3>Скорость</h3>
+                        <p>Быстрая разработка и оптимизация для достижения максимальной производительности</p>
+                    </div>
+                    <div class="feature">
+                        <i>📱</i>
+                        <h3>Адаптивность</h3>
+                        <p>Создание сайтов, которые отлично выглядят на всех устройствах и экранах</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Мобильные приложения</h3>
-                    <p>Создание кроссплатформенных мобильных приложений с использованием React Native и других технологий.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Портфолио -->
-    <section id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Мои работы</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x250" alt="Проект 1">
-                    <div class="portfolio-overlay">
-                        <h3>Корпоративный сайт</h3>
-                        <p>Разработка сайта для крупной компании с системой управления контентом.</p>
+            <!-- Страница "Обо мне" -->
+            <section id="about" class="page">
+                <h1>Обо мне</h1>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Привет! Меня зовут Алексей, и я веб-разработчик с более чем 5-летним опытом. Я специализируюсь на создании современных, функциональных и красивых веб-сайтов и приложений.</p>
+                        <p>Моя страсть к программированию началась еще в университете, и с тех пор я постоянно совершенствую свои навыки, изучая новые технологии и подходы к разработке.</p>
+                        <p>Я верю, что хороший сайт должен быть не только красивым, но и удобным для пользователя, поэтому я уделяю особое внимание UX/UI дизайну и производительности.</p>
+                        
+                        <div class="skills">
+                            <h2>Мои навыки</h2>
+                            <div class="skill">
+                                <span class="skill-name">HTML/CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">React</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/400x500/3498db/ffffff?text=Мое+Фото" alt="Мое фото" class="profile-img">
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x250" alt="Проект 2">
-                    <div class="portfolio-overlay">
-                        <h3>Интернет-магазин</h3>
-                        <p>Создание полнофункционального интернет-магазина с системой оплаты и доставки.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://via.placeholder.com/400x250" alt="Проект 3">
-                    <div class="portfolio-overlay">
-                        <h3>Мобильное приложение</h3>
-                        <p>Разработка кроссплатформенного приложения для управления задачами.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Контакты -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Свяжитесь со мной</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>ivan@example.com</p>
+            <!-- Страница "Портфолио" -->
+            <section id="portfolio" class="page">
+                <h1>Мои работы</h1>
+                <p>Ниже представлены некоторые из моих последних проектов. Каждый проект был создан с вниманием к деталям и фокусом на пользовательский опыт.</p>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://via.placeholder.com/400x200/3498db/ffffff?text=Корпоративный+сайт" alt="Корпоративный сайт" class="portfolio-img">
+                        <div class="portfolio-info">
+                            <h3>Корпоративный сайт</h3>
+                            <p>Разработка современного корпоративного сайта для IT-компании с системой управления контентом</p>
+                            <a href="#" class="btn">Подробнее</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h3>Телефон</h3>
-                            <p>+7 (123) 456-78-90</p>
+                    <div class="portfolio-item">
+                        <img src="https://via.placeholder.com/400x200/2c3e50/ffffff?text=Интернет-магазин" alt="Интернет-магазин" class="portfolio-img">
+                        <div class="portfolio-info">
+                            <h3>Интернет-магазин</h3>
+                            <p>Создание полнофункционального интернет-магазина с системой оплаты и управления заказами</p>
+                            <a href="#" class="btn">Подробнее</a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h3>Адрес</h3>
-                            <p>Москва, Россия</p>
+                    <div class="portfolio-item">
+                        <img src="https://via.placeholder.com/400x200/2ecc71/ffffff?text=Мобильное+приложение" alt="Мобильное приложение" class="portfolio-img">
+                        <div class="portfolio-info">
+                            <h3>Мобильное приложение</h3>
+                            <p>Разработка кроссплатформенного мобильного приложения для управления задачами</p>
+                            <a href="#" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://via.placeholder.com/400x200/e74c3c/ffffff?text=Лендинг+страница" alt="Лендинг страница" class="portfolio-img">
+                        <div class="portfolio-info">
+                            <h3>Лендинг страница</h3>
+                            <p>Создание высококонверсионной лендинг страницы для запуска нового продукта</p>
+                            <a href="#" class="btn">Подробнее</a>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Имя</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Сообщение</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Отправить сообщение</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Футер -->
+            <!-- Страница "Услуги" -->
+            <section id="services" class="page">
+                <h1>Мои услуги</h1>
+                <p>Я предлагаю широкий спектр услуг по веб-разработке, от создания простых сайтов-визиток до сложных веб-приложений.</p>
+                
+                <div class="services-grid">
+                    <div class="service">
+                        <i>🌐</i>
+                        <h3>Веб-разработка</h3>
+                        <p>Создание современных и адаптивных веб-сайтов с использованием последних технологий</p>
+                        <div class="price">от 15 000 руб.</div>
+                        <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
+                    </div>
+                    <div class="service">
+                        <i>📱</i>
+                        <h3>Мобильные приложения</h3>
+                        <p>Разработка кроссплатформенных мобильных приложений с нативным пользовательским опытом</p>
+                        <div class="price">от 30 000 руб.</div>
+                        <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
+                    </div>
+                    <div class="service">
+                        <i>🛠️</i>
+                        <h3>Техническая поддержка</h3>
+                        <p>Обслуживание и поддержка существующих сайтов, устранение ошибок и добавление нового функционала</p>
+                        <div class="price">от 5 000 руб./мес</div>
+                        <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
+                    </div>
+                    <div class="service">
+                        <i>🎨</i>
+                        <h3>UI/UX дизайн</h3>
+                        <p>Создание интуитивно понятных и привлекательных интерфейсов для ваших цифровых продуктов</p>
+                        <div class="price">от 10 000 руб.</div>
+                        <a href="#" class="btn nav-link" data-page="contact">Заказать</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Страница "Контакты" -->
+            <section id="contact" class="page">
+                <h1>Свяжитесь со мной</h1>
+                <p>Готовы начать новый проект? Свяжитесь со мной, и мы обсудим все детали!</p>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Контактная информация</h2>
+                        <div class="contact-item">
+                            <i>📧</i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>example@mail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i>📞</i>
+                            <div>
+                                <h3>Телефон</h3>
+                                <p>+7 (999) 123-45-67</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i>📍</i>
+                            <div>
+                                <h3>Адрес</h3>
+                                <p>г. Москва, ул. Примерная, д. 123</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i>🕒</i>
+                            <div>
+                                <h3>Время работы</h3>
+                                <p>Пн-Пт: 9:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>Отправить сообщение</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Ваш email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Тема сообщения</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Сообщение</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Отправить сообщение</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="logo">Мое Портфолио</div>
+                <div class="logo">Мой<span>Сайт</span></div>
                 <div class="social-links">
-                    <a href="#">VK</a>
-                    <a href="#">Telegram</a>
-                    <a href="#">GitHub</a>
-                    <a href="#">Instagram</a>
+                    <a href="#" title="VK">VK</a>
+                    <a href="#" title="Telegram">TG</a>
+                    <a href="#" title="GitHub">GH</a>
+                    <a href="#" title="Instagram">IG</a>
                 </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Иван Иванов. Все права защищены.</p>
+                <p class="copyright">© 2023 МойСайт. Все права защищены.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Навигация между страницами
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Скрыть все страницы
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Показать целевую страницу
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Прокрутка к верху страницы
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Обработка формы
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Сообщение отправлено! Я свяжусь с вами в ближайшее время.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
